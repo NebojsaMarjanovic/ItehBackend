@@ -41,7 +41,8 @@ namespace TuristickaAgencijaAPI
                 });
             });
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(opt => { opt.JsonSerializerOptions.PropertyNamingPolicy = null; })
+                .AddXmlSerializerFormatters();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TuristickaAgencijaAPI", Version = "v1" });

@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Interfaces;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace DataAccessLayer.Implementations
 
         public Admin SearchById(Admin entity)
         {
-            return context.Admins.Single(a => a.UserId == entity.UserId);
+            return context.Admins.Single(g => g.UserId == entity.UserId);
         }
 
         public List<Admin> SerachBy(Expression<Func<Admin, bool>> predicate)
